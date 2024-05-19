@@ -7,11 +7,9 @@
 
     <test name="Test">
         <classes>
-            <class name="todos.testCases.AddEditTodo"/>
-            <class name="todos.testCases.TodoList"/>
+            <class name="todos.testCases.AddEditTodoTests"/>
+            <class name="todos.testCases.TodoListTests"/>
         </classes>
     </test> <!-- Test -->
-
-
 
 </suite> <!-- Suite -->

@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 import pages.AddTodoPage;
 import pages.ListedTodosPage;
 
-public class TodoList extends BaseTest {
+public class TodoListTests extends BaseTest {
 
     AddTodoPage addTodoPage;
     ListedTodosPage listedTodosPage;
@@ -13,8 +13,8 @@ public class TodoList extends BaseTest {
     @BeforeMethod
     public void setup() {
         initialization();
-        addTodoPage = new AddTodoPage();
-        listedTodosPage = new ListedTodosPage();
+        addTodoPage = new AddTodoPage(driver);
+        listedTodosPage = new ListedTodosPage(driver);
     }
 
     @Test(testName = "Verify the todo gets completed when user clicks on radio button")

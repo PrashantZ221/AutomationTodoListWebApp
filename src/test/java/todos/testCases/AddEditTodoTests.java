@@ -11,15 +11,15 @@ import pages.ListedTodosPage;
 
 @Listeners(ScreenshotOnFailure.class)
 
-public class AddEditTodo extends BaseTest {
+public class AddEditTodoTests extends BaseTest {
     AddTodoPage addTodoPage;
     ListedTodosPage listedTodosPage;
 
     @BeforeMethod
     public void setup() {
         initialization();
-        addTodoPage = new AddTodoPage();
-        listedTodosPage = new ListedTodosPage();
+        addTodoPage = new AddTodoPage(driver);
+        listedTodosPage = new ListedTodosPage(driver);
     }
 
     @Test(testName = "Verify the todo gets added when we enter todo in the box and press enter")

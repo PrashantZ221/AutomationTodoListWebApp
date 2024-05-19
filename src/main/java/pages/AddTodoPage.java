@@ -1,6 +1,7 @@
 package pages;
 
 import base.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,35 +11,36 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import javax.swing.*;
-import java.util.List;
+public class AddTodoPage {
 
-public class AddTodoPage extends BaseTest {
-
+    public WebDriver driver;
+    public AddTodoPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
     @FindBy(id = "todo-input")
     WebElement todoTextBox;
 
-    public WebElement todoItem(String todoName) {
+    protected WebElement todoItem(String todoName) {
         return driver.findElement(By.xpath("//label[@data-testid='todo-item-label'][contains(text(), '" + todoName + "')]"));
     }
 
-    public WebElement editTodo(String todoName) {
+    private WebElement editTodo(String todoName) {
         return driver.findElement(By.xpath("//div[@class='view']//input[@id='todo-input'][@value='" + todoName + "']"));
     }
 
-    public AddTodoPage() {
-        PageFactory.initElements(driver, this);
-    }
-
+    @Step("Add a todo with name {0}")
     public void addTodo(String todoName) {
         todoTextBox.sendKeys(todoName);
         todoTextBox.sendKeys(Keys.ENTER);
     }
 
+    @Step("Verify that a todo {0} is present")
     public void verifyTodoPresent(String todoName) {
         Assert.assertTrue(todoItem(todoName).isDisplayed());
     }
 
+    @Step("Verify that a todo {0} is not present")
     public void verifyTodoNotPresent(String todoName) {
         try {
             Assert.assertFalse(todoItem(todoName).isDisplayed());
@@ -47,6 +49,7 @@ public class AddTodoPage extends BaseTest {
         }
     }
 
+    @Step("Verify that todo is not editable with single click for todo {0}")
     public void singleClickAndVerifyNotEditable(String todoName) {
         todoItem(todoName).click();
         try {
@@ -59,6 +62,5 @@ public class AddTodoPage extends BaseTest {
         act.doubleClick(todoItem(todoName)).build().perform();
         Assert.assertTrue(editTodo(todoName).isDisplayed());
     }
-
 
 }
