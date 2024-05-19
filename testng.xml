@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <listeners>
+        <listener class-name="listener.ScreenshotOnFailure"></listener>
+    </listeners>
+
+    <test name="Test">
+        <classes>
+            <class name="todos.testCases.AddEditTodo"/>
+            <class name="todos.testCases.TodoList"/>
+        </classes>
+    </test> <!-- Test -->
+
+
+
+</suite> <!-- Suite -->
