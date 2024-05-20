@@ -1,6 +1,7 @@
 package todos.testCases;
 
 import base.BaseTest;
+import constants.Constants;
 import listener.ScreenshotOnFailure;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -24,14 +25,14 @@ public class AddEditTodoTests extends BaseTest {
 
     @Test(testName = "Verify the todo gets added when we enter todo in the box and press enter")
     public void verifyTodoIsAdded() {
-        addTodoPage.addTodo("Go to market");
-        addTodoPage.verifyTodoPresent("Go to marketaaa");
+        addTodoPage.addTodo(Constants.todoGoToMarket);
+        addTodoPage.verifyTodoPresent(Constants.todoGoToMarket);
     }
 
     @Test(testName = "Verify that todo should not be editable unless user double clicks on it")
     public void verifyTodoIsNotEditableUnlessUserDoubleClicks() {
-        addTodoPage.addTodo("Breakfast");
-        addTodoPage.singleClickAndVerifyNotEditable("Breakfast");
+        addTodoPage.addTodo(Constants.todo30MinutesYoga);
+        addTodoPage.singleClickAndVerifyNotEditable(Constants.todo30MinutesYoga);
     }
 
     @Test(testName = "Verify todo name should not accept blank value or space.")

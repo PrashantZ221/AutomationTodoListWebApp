@@ -13,10 +13,10 @@ This repository contains a Selenium automation framework implemented using the P
 
 **Setup**
 
-- Clone the repository to your local machine.
+- Clone the repository to your local machine. (Windows Machine)
 - Install Java, Maven and set their environment variables
-- Execute testng.xml file to run all the test cases
+- Navigate to project folder. Run 'mvn clean' and then 'mvn test' command to run all the test cases
 - You can view the screenshot of failed test cases in screenshots folder
-- The result are saved in target/allure-results folder after execution. To view the result run 'allure serve' command in terminal
+- The result are saved in target/allure-results folder after execution. To view the result run 'allure serve <path till allure-reports>' command in terminal. Eg: allure serve "C:\Users\Prashant.Agarwal\Desktop\AutomationTodoListWebApp\target\allure-results"
 
 If you have any questions or suggestions, please contact Prashant Agarwal (prash221@gmail.com)
