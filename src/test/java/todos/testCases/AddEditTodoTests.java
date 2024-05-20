@@ -25,7 +25,7 @@ public class AddEditTodoTests extends BaseTest {
     @Test(testName = "Verify the todo gets added when we enter todo in the box and press enter")
     public void verifyTodoIsAdded() {
         addTodoPage.addTodo("Go to market");
-        addTodoPage.verifyTodoPresent("Go to market");
+        addTodoPage.verifyTodoPresent("Go to marketaaa");
     }
 
     @Test(testName = "Verify that todo should not be editable unless user double clicks on it")
